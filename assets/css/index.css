@@ -1,0 +1,277 @@
+/*
+ * index.css — Index Page Styles
+ * DjangoPlay Documentation Site
+ */
+
+
+/* ─── user ───────────────────────────────────────────────────────────────── */
+
+.user {
+  min-height: calc(51vh - var(--nav-height));
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-6);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  max-width: var(--page-max);  
+  margin: 0 auto;
+  padding: var(--space-8) var(--page-padding) 0;
+  gap: var(--space-8);
+}
+
+.user-left {
+  animation: slideUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+}
+
+.user-right {
+  animation: slideUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.25s both;
+}
+
+/* Eyebrow label */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-badge);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  margin-bottom: var(--space-8);
+  transition: color var(--transition-slow);
+}
+
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--color-orange);
+  flex-shrink: 0;
+  transition: background var(--transition-slow);
+}
+
+/* Headline */
+h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-user);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-6);
+  transition: color var(--transition-slow);
+}
+
+h1 em     { font-style: italic; color: var(--color-purple); }
+h1 .accent { color: var(--color-red); }
+
+/* Description */
+.user-desc {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  margin-bottom: var(--space-6);
+  max-width: 440px;
+  font-weight: 300;
+  transition: color var(--transition-slow);
+}
+
+.user-desc strong {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+/* CTA row */
+.cta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-);
+  flex-wrap: wrap;
+}
+
+
+/* ─── Tech stack section ─────────────────────────────────────────────────── */
+
+.stack-section {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: var(--space-12) var(--page-padding);
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.stack-item {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: background var(--transition-base),
+              border-color var(--transition-base),
+              var(--transition-theme);
+}
+
+.stack-item:hover {
+  background: var(--color-surface-hover);
+  border-color: var(--card-border-hover);
+}
+
+.stack-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: var(--space-4);
+}
+
+.stack-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+  transition: color var(--transition-slow);
+}
+
+.stack-desc {
+  font-size: var(--text-micro);
+  color: var(--color-text-tertiary);
+  font-weight: 300;
+  line-height: 1.5;
+  transition: color var(--transition-slow);
+}
+
+
+/* ─── Architecture section ───────────────────────────────────────────────── */
+
+.arch-section {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: var(--space-6) var(--page-padding) var(--space-8);
+}
+
+.arch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+}
+
+.arch-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition-base),
+              box-shadow var(--transition-base),
+              var(--transition-theme);
+}
+
+.arch-card:hover {
+  border-color: var(--card-border-hover);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Coloured top accent bar */
+.arch-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.arch-card.orange::before { background: var(--color-orange); }
+.arch-card.purple::before { background: var(--color-purple); }
+.arch-card.red::before    { background: var(--color-red);    }
+
+.arch-number {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--color-rule);
+  line-height: 1;
+  margin-bottom: var(--space-3);
+  font-style: italic;
+  transition: color var(--transition-slow);
+}
+
+.arch-title {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+  transition: color var(--transition-slow);
+}
+
+.arch-desc {
+  font-size: var(--text-micro);
+  color: var(--color-text-tertiary);
+  line-height: 1.6;
+  transition: color var(--transition-slow);
+}
+
+.arch-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: var(--space-4);
+}
+
+.arch-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  border: 1px solid var(--color-rule);
+  color: var(--color-text-secondary);
+  transition: var(--transition-theme);
+}
+
+.code-body {
+  font-family: "DM Mono", monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  min-height: 120px;
+  white-space: pre-line;
+  position: relative;
+}
+
+/* blinking cursor */
+.code-body::after {
+  content: "|";
+  animation: blink 1s infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .user {
+    grid-template-columns: 1fr;
+    padding-top: calc(var(--nav-height) + var(--space-8));
+    gap: var(--space-6);
+  }
+
+  .stack-grid { grid-template-columns: repeat(2, 1fr); }
+  .arch-grid  { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 500px) {
+  .stack-grid { grid-template-columns: 1fr; }
+
+  h1 { font-size: 2.2rem; }
+}
