@@ -15,7 +15,7 @@ trigger_github_mirror:
       curl -s -X POST \
         -H "Accept: application/vnd.github+json" \
         -H "Authorization: token $GH_TOKEN" \
-        https://api.github.com/repos/codefleetx/djangoplay-site/dispatches \
+        https://api.github.com/repos/codefleetx/docs/dispatches \
         -d '{"event_type": "gitlab-push"}'
     - echo "✅ Mirror trigger sent"
 
