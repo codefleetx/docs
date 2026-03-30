@@ -1,42 +1,61 @@
-const lines = [
-  "> Loading documentation...",
-  "> Architecture",
-  "> API Documentation",
-  "> Deployment Guides",
-  "> Runbooks",
-  "> System Design",
-  "> ADR Decisions",
-  "> Documentation ready"
+const docLines = [
+  { text: "> Initializing Documentation Engine...", type: "system" },
+  { text: "> Loading project manifests...", type: "system" },
+  { text: "✓ Found 121 Markdown files in /architecture", type: "success" },
+  { text: "✓ Found 354 API endpoints in /apidocs", type: "success" },
+  { text: "> Generating Table of Contents...", type: "process" },
+  { text: "✓ Stylesheets optimized and bundled.", type: "success" },
+  { text: "> Building Search Index...", type: "process" },
+  { text: "✓ 248 items indexed successfully.", type: "success" },
+  { text: "> Documentation Ready at https://docs.djangoplay.org", type: "ready" }
 ];
 
-let lineIndex = 0;
-let charIndex = 0;
-let currentLine = "";
-let isDeleting = false;
-
+let lineIdx = 0;
+let charIdx = 0;
 const container = document.getElementById("code-animate");
 
-function typeAnimation() {
-  if (!container) return;
-
-  currentLine = lines[lineIndex];
-
-  if (!isDeleting) {
-    container.innerText = currentLine.substring(0, charIndex++);
-    if (charIndex > currentLine.length) {
-      isDeleting = true;
-      setTimeout(typeAnimation, 1200);
-      return;
+function typeDocumentation() {
+  if (!container || lineIdx >= docLines.length) {
+    // Optional: Reset after a long pause to loop the animation
+    if (lineIdx >= docLines.length) {
+       setTimeout(() => {
+         container.innerHTML = "";
+         lineIdx = 0;
+         charIdx = 0;
+         typeDocumentation();
+       }, 5000);
     }
-  } else {
-    container.innerText = currentLine.substring(0, charIndex--);
-    if (charIndex === 0) {
-      isDeleting = false;
-      lineIndex = (lineIndex + 1) % lines.length;
-    }
+    return;
   }
 
-  setTimeout(typeAnimation, isDeleting ? 40 : 80);
+  const currentItem = docLines[lineIdx];
+  
+  // Create a new line element if we just started this line
+  if (charIdx === 0) {
+    const lineEl = document.createElement("div");
+    lineEl.className = `code-line ${currentItem.type}`;
+    container.appendChild(lineEl);
+  }
+
+  const currentLineEl = container.lastElementChild;
+  currentLineEl.textContent = currentItem.text.substring(0, charIdx + 1);
+  charIdx++;
+
+  if (charIdx < currentItem.text.length) {
+    // Variable typing speed for realism
+    const speed = Math.random() * 30 + 20; 
+    setTimeout(typeDocumentation, speed);
+  } else {
+    // Line finished
+    charIdx = 0;
+    lineIdx++;
+    // Wait longer between lines
+    const lineDelay = currentItem.type === "success" ? 400 : 800;
+    setTimeout(typeDocumentation, lineDelay);
+  }
+  
+  // Auto-scroll to bottom
+  container.scrollTop = container.scrollHeight;
 }
 
-document.addEventListener("DOMContentLoaded", typeAnimation);
+document.addEventListener("DOMContentLoaded", typeDocumentation);
