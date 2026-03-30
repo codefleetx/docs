@@ -1,132 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>DjangoPlay Documentation</title>
     <link rel="icon" href="assets/brand/logo/dp-icon.png" type="image/png">
 
-    <link rel="stylesheet" href="assets/css/tokens.css">
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/space-theme.css">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/bundle.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono&family=DM+Serif+Display&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
-<div id="stars"></div>
+    <div id="stars"></div>
 
-<!-- Navigation -->
-<nav>
-    <a href="index.html" class="nav-logo">
-        <img src="assets/brand/logo/dp-icon.png" class="icon">
-        <img src="assets/brand/logo/dp-text.png" class="wordmark">
-    </a>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <img src="assets/brand/logo/dp-icon.png" class="icon">
+            <img src="assets/brand/logo/text-logo.png" class="wordmark">
+        </a>
 
-    <ul class="nav-links">        
-        <li><a href="index.html" class="active">Docs</a></li>
-    </ul>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Docs</a></li>
+        </ul>
 
-    <div class="nav-right">
-        <button class="theme-toggle-btn" id="theme-toggle">
-            <span class="icon-moon">🌙</span>
-            <span class="icon-sun">☀️</span>
-        </button>
-        <span class="nav-badge">Documentation</span>
-    </div>
-</nav>
-
-<main>
-
-    <!-- Hero -->
-    <section class="user">
-        <div class="user-left">
-            <div class="eyebrow">Documentation Portal</div>
-            <h1>DjangoPlay <em>Documentation</em></h1>
-            <p class="user-desc">
-                Architecture, APIs, deployment, runbooks, and system documentation
-                for all CodeFleet Labs projects.
-            </p>
+        <div class="nav-right">
+            <button class="theme-toggle-btn" id="theme-toggle">
+                <span class="icon-moon">🌙</span>
+                <span class="icon-sun">☀️</span>
+            </button>
+            <span class="nav-badge">Documentation</span>
         </div>
+    </nav>
 
-        <div class="user-right">
-            <div class="code-card">
-                <div class="code-header">
-                    <div class="code-dots">
-                        <span class="dot-r"></span>
-                        <span class="dot-y"></span>
-                        <span class="dot-g"></span>
+    <main>
+
+        <!-- Hero -->
+        <section class="user">
+            <div class="user-left">
+                <div class="eyebrow">Documentation Portal</div>
+                <h1>DjangoPlay <em>Documentation</em></h1>
+                <p class="user-desc">
+                    Architecture, APIs, deployment, runbooks, and system documentation
+                    for all CodeFleet Labs projects.
+                </p>
+            </div>
+
+            <div class="user-right">
+                <div class="code-card">
+                    <div class="code-header">
+                        <div class="code-dots">
+                            <span class="dot-r"></span>
+                            <span class="dot-y"></span>
+                            <span class="dot-g"></span>
+                        </div>
+                        <div class="code-filename">docs</div>
+                        <div class="code-lang">portal</div>
                     </div>
-                    <div class="code-filename">docs</div>
-                    <div class="code-lang">portal</div>
+                    <div class="code-body" id="code-animate"></div>
                 </div>
-                <div class="code-body" id="code-animate"></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Documentation Sections -->
-    <section class="arch-section">
-        <div class="section-inner">
-            <div class="section-label">Documentation</div>
+        <!-- Documentation Sections -->
+        <section class="arch-section">
+            <div class="section-inner">
+                <div class="section-label">Documentation</div>
 
-            <div class="arch-grid">
+                <div class="arch-grid">
 
-                <a href="projects/index.html" class="arch-card orange">
-                    <div class="arch-number">01</div>
-                    <div class="arch-title">Projects</div>
-                    <div class="arch-desc">Project documentation</div>
-                </a>
+                    <a href="projects/index.html" class="arch-card orange">
+                        <div class="arch-number">01</div>
+                        <div class="arch-title">Projects</div>
+                        <div class="arch-desc">Project documentation</div>
+                    </a>
 
-                <a href="common/index.html" class="arch-card purple">
-                    <div class="arch-number">02</div>
-                    <div class="arch-title">Common</div>
-                    <div class="arch-desc">Glossary, standards, security</div>
-                </a>
+                    <a href="common/index.html" class="arch-card purple">
+                        <div class="arch-number">02</div>
+                        <div class="arch-title">Common</div>
+                        <div class="arch-desc">Glossary, standards, security</div>
+                    </a>
 
-                <a href="governance/index.html" class="arch-card red">
-                    <div class="arch-number">03</div>
-                    <div class="arch-title">Governance</div>
-                    <div class="arch-desc">Contributing and style guide</div>
-                </a>
+                    <a href="governance/index.html" class="arch-card red">
+                        <div class="arch-number">03</div>
+                        <div class="arch-title">Governance</div>
+                        <div class="arch-desc">Contributing and style guide</div>
+                    </a>
 
-                <a href="templates/index.html" class="arch-card orange">
-                    <div class="arch-number">04</div>
-                    <div class="arch-title">Templates</div>
-                    <div class="arch-desc">Documentation templates</div>
-                </a>
+                    <a href="templates/index.html" class="arch-card orange">
+                        <div class="arch-number">04</div>
+                        <div class="arch-title">Templates</div>
+                        <div class="arch-desc">Documentation templates</div>
+                    </a>
 
-                <a href="diagrams/" class="arch-card purple">
-                    <div class="arch-number">05</div>
-                    <div class="arch-title">Diagrams</div>
-                    <div class="arch-desc">Architecture diagrams</div>
-                </a>
+                    <a href="diagrams/" class="arch-card purple">
+                        <div class="arch-number">05</div>
+                        <div class="arch-title">Diagrams</div>
+                        <div class="arch-desc">Architecture diagrams</div>
+                    </a>
 
+                </div>
             </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <img src="assets/brand/logo/dp-icon.png" class="icon">
+            <img src="assets/brand/logo/text-logo.png" class="logo-text">
         </div>
-    </section>
+        <ul class="footer-nav">
+            <li><a href="index.html">Docs</a></li>
+        </ul>
+        <div class="footer-right">
+            &copy; <span id="footer-year"></span> DjangoPlay&nbsp;·[djangoplay.org]
+        </div>
+    </footer>
 
-</main>
-
-<footer>
-    <div class="footer-logo">
-        <img src="assets/brand/logo/dp-icon.png" class="icon">
-        <img src="assets/brand/logo/dp-text.png" class="logo-text">
-    </div>
-    <ul class="footer-nav">
-        <li><a href="index.html">Docs</a></li>
-    </ul>
-    <div class="footer-right">
-        &copy; <span id="footer-year"></span> DjangoPlay [djangoplay.org]
-    </div>
-</footer>
-
-<script src="assets/js/main.js"></script>
-<script src="assets/js/code-block.js"></script>
-<script src="assets/js/theme.js"></script>
-<script src="assets/js/space.js"></script>
-<script src="assets/js/search.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="assets/js/markdown.js"></script>
+    <script src="dist/js/bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 </body>
+
 </html>

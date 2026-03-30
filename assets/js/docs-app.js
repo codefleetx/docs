@@ -1,11 +1,18 @@
 /* Load Docs Index */
 async function loadDocsIndex() {
-  const res = await fetch("assets/json/docs-index.json");
-  window.docsIndex = await res.json();
+  const res = await fetch('dist/json/docs-index.pkg');
+  const base64 = await res.text();
+  const jsonString = atob(base64);
+  const data = JSON.parse(jsonString);
+  console.log("docsIndex:", data);
+  window.docsIndex = data;
 }
 
 /* Build Sidebar */
 async function buildSidebar() {
+  const container = document.getElementById("docs-sidebar-nav");
+  if (!container) return;
+
   const data = window.docsIndex;
   let html = "";
 
@@ -63,6 +70,9 @@ function removeManualTOC(markdown) {
 
 /* Load Markdown */
 async function loadMarkdown(file) {
+  const container = document.getElementById("doc-content");
+  if (!container) return;
+
   if (!file) return;
 
   try {
@@ -135,6 +145,12 @@ function showFolder(folder) {
 
 /* Init Docs */
 async function initDocs() {
+  // Check if we are actually on a documentation page
+  if (!document.getElementById("doc-content")) {
+    console.log("Not a docs page, skipping initDocs.");
+    return; 
+  }
+  
   await loadDocsIndex();
   await buildSidebar();
 
@@ -157,6 +173,15 @@ async function initDocs() {
 
   if (file.endsWith("/")) {
     showFolder(file);
+    renderBreadcrumb(file); // <--- Add this line!
+    
+    // Clear the Prev/Next and TOC since they don't apply to folders
+    const navEl = document.getElementById("docs-nav");
+    if (navEl) navEl.innerHTML = "";
+    
+    const tocEl = document.getElementById("toc");
+    if (tocEl) tocEl.innerHTML = "";
+    
     return;
   }
 

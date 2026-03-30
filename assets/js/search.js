@@ -1,8 +1,11 @@
 let searchIndex = [];
 
 async function loadSearchIndex() {
-  const res = await fetch("assets/json/search-index.json");
-  searchIndex = await res.json();
+  const res = await fetch("dist/json/search-index.pkg");
+  const base64 = await res.text();
+  const jsonString = atob(base64);
+  const data = JSON.parse(jsonString);
+  searchIndex = data;
 }
 
 /* Create snippet around matched word */

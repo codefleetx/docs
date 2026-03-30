@@ -60,31 +60,3 @@ function addHeadingAnchors() {
     h.appendChild(anchor);
   });
 }
-
-function removeManualTOC(markdown) {
-  const lines = markdown.split("\n");
-  let result = [];
-  let skip = false;
-
-  for (let line of lines) {
-    const lower = line.toLowerCase().trim();
-
-    /* Start skipping when TOC heading found */
-    if (lower.startsWith("## table of contents") ||
-        lower.startsWith("# table of contents")) {
-      skip = true;
-      continue;
-    }
-
-    /* Stop skipping when next heading appears */
-    if (skip && line.startsWith("#")) {
-      skip = false;
-    }
-
-    if (!skip) {
-      result.push(line);
-    }
-  }
-
-  return result.join("\n");
-}
