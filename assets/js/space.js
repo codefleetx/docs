@@ -1,6 +1,5 @@
 /**
  * space.js — Star Field Generator
- * DjangoPlay Landing Site
  *
  * Generates and animates a star field inside #stars when the
  * space theme is active. Listens to the "themechange" custom event

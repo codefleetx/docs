@@ -1,5 +1,3 @@
-// theme.js — theme toggle with persistence
-
 (function () {
   const btn = document.getElementById('theme-toggle');
   const root = document.documentElement;
@@ -12,6 +10,12 @@
       root.classList.remove('space-theme');
       localStorage.setItem('theme', 'light');
     }
+
+    // Dispatch theme change event
+    const event = new CustomEvent('themechange', {
+      detail: { theme: theme }
+    });
+    root.dispatchEvent(event);
   }
 
   function toggleTheme() {
@@ -22,16 +26,11 @@
     }
   }
 
-  function initTheme() {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'space') {
-      root.classList.add('space-theme');
-    }
+  if (btn) {
+    btn.addEventListener('click', toggleTheme);
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    initTheme();
-    if (btn) btn.addEventListener('click', toggleTheme);
-  });
-
+  // Load saved theme
+  const saved = localStorage.getItem('theme');
+  if (saved) setTheme(saved);
 })();

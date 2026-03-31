@@ -1,6 +1,5 @@
 /*
  * tokens.css — Design Tokens
- * DjangoPlay Landing Site
  *
  * This file is the single source of truth for all design values.
  * Every colour, spacing unit, font, and radius used across the site
@@ -47,7 +46,10 @@
   /* Surface */
   --color-bg:            #FAFAFA;
   --color-surface:       #FFFFFF;
-  --color-rule:          #E4E4EE;
+  --color-rule-soft:     #ECECF2;
+  --color-rule:          #D6D8E1;
+  --color-rule-strong:   #B8BCC8;
+
   --color-surface-hover: #F7F7FB;
 
   /* Semantic text */
@@ -82,7 +84,9 @@
 .space-theme {
   --color-bg:            #000000;
   --color-surface:       rgba(0, 0, 0, 0.70);
-  --color-rule:          rgba(255, 255, 255, 0.12);
+  --color-rule-soft:     rgba(255,255,255,0.10);
+  --color-rule:          rgba(255,255,255,0.22);
+  --color-rule-strong:   rgba(255,255,255,0.35);
   --color-surface-hover: rgba(255, 255, 255, 0.06);
 
   --color-ink:           #e0f7ff;

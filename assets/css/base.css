@@ -5,9 +5,6 @@
  * Contains: reset, body, nav, footer, shared utilities, section
  * scaffolding, buttons, badges, dividers, code card shell.
  *
- * Page-specific styles live in:
- *   index.css      — user, stack grid, arch cards
- *
  * Space-theme overrides live in space-theme.css (applied via .space-theme
  * class on <html>, toggled by assets/js/theme.js).
  */
@@ -428,7 +425,7 @@ footer {
 
 
 .footer-logo img.logo-text {
-  height: 20px;
+  height: 10px;
   width: auto;
   object-fit: contain;
 }
