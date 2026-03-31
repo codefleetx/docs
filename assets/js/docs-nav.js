@@ -3,7 +3,7 @@ let docsNav = [];
 
 /* Load navigation index (Internal helper for pagination) */
 async function loadNavData() {
-  const res = await fetch("dist/json/docs-index.pkg");
+  const res = await fetch("/dist/json/docs-index.pkg");
   const base64 = await res.text();
   const jsonString = atob(base64);
   const data = JSON.parse(jsonString);
