@@ -7,7 +7,8 @@ const docLines = [
   { text: "✓ Stylesheets optimized and bundled.", type: "success" },
   { text: "> Building Search Index...", type: "process" },
   { text: "✓ 248 items indexed successfully.", type: "success" },
-  { text: "> Documentation Ready at https://docs.djangoplay.org", type: "ready" }
+  { text: "> Documentation Ready at:", type: "ready" },
+  { text: "https://docs.djangoplay.org", type: "link" }
 ];
 
 let lineIdx = 0;

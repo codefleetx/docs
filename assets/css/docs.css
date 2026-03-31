@@ -471,6 +471,29 @@ nav {
   animation: cursor-blink 1s step-end infinite;
 }
 
+/* Styling the link in the terminal */
+/* The label line */
+.code-line.ready {
+  color: #8b949e; 
+  border-top: 1px solid var(--color-rule);
+  margin-top: 10px;
+  padding-top: 10px;
+  margin-bottom: 0; /* Keep the URL close to this label */
+}
+
+/* The actual URL line */
+.code-line.link {
+  color: #58a6ff;
+  text-decoration: underline;
+  cursor: pointer;
+  padding-left: 12px; /* Indent it slightly for a nested look */
+  transition: color 0.2s ease;
+}
+
+.code-line.link:hover {
+  color: #79c0ff;
+}
+
 @keyframes cursor-blink {
 
   from,

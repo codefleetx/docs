@@ -3,7 +3,7 @@ function renderBreadcrumb(path) {
   if (!container || !path) return;
 
   const parts = path.split("/");
-  let html = `<a href="index.html">Home</a>`;
+  let html = `<a href="/">Home</a>`;
 
   let current = "";
 

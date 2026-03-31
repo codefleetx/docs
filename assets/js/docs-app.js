@@ -1,6 +1,6 @@
 /* Load Docs Index */
 async function loadDocsIndex() {
-  const res = await fetch('dist/json/docs-index.pkg');
+  const res = await fetch('/dist/json/docs-index.pkg');
   const base64 = await res.text();
   const jsonString = atob(base64);
   const data = JSON.parse(jsonString);
@@ -157,8 +157,7 @@ async function initDocs() {
   let hash = window.location.hash.substring(1);
 
   if (!hash) {
-    hash = "README.md";
-    window.location.hash = hash;
+    window.location.href = "/";
     return;
   }
 

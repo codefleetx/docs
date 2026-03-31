@@ -1,7 +1,7 @@
 let searchIndex = [];
 
 async function loadSearchIndex() {
-  const res = await fetch("dist/json/search-index.pkg");
+  const res = await fetch("/dist/json/search-index.pkg");
   const base64 = await res.text();
   const jsonString = atob(base64);
   const data = JSON.parse(jsonString);
