@@ -82,3 +82,6 @@ venv
 project_tree.txt
 filemerger-output.txt
 .history
+assets/json/site_config.json
+!dist/
+*git-diff-patch-with-stats*
