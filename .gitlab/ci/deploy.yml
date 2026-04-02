@@ -15,11 +15,21 @@ deploy_production:
     - mkdir -p ~/.ssh && chmod 700 ~/.ssh
     - ssh-keyscan -H "$SERVER_HOST" >> ~/.ssh/known_hosts
 
-
   script:
     - |
-      ssh ubuntu@$SERVER_HOST << 'EOF'        
-        bash /var/www/djangoplay/docs/docs/scripts/deploy.sh docs_dir
+      ssh ubuntu@$SERVER_HOST << 'EOF'
+        # Dynamically find the deployment path
+        TARGET_DIR=$(grep "docs_dir:" ~/.dplay/config.yaml | cut -d ':' -f 2 | xargs)
+
+        if [ -d "$TARGET_DIR" ]; then
+          cd "$TARGET_DIR"
+
+          # Run the deployment script
+          bash scripts/deploy.sh docs_dir
+        else
+          echo "Error: Directory $TARGET_DIR does not exist on the server."
+          exit 1
+        fi
       EOF
 
   environment:
